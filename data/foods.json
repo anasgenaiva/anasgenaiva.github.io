@@ -1,0 +1,536 @@
+{
+  "fetched": "2026-11-16",
+  "source": "USDA FoodData Central, SR Legacy (April 2018 release)",
+  "foods": [
+    {
+      "slug": "rolled-oats",
+      "name": "Rolled oats",
+      "group": "grains",
+      "fdc": "Cereals, oats, regular and quick, not fortified, dry",
+      "fdcId": 173904,
+      "ndb": 8120,
+      "description": "Cereals, oats, regular and quick, not fortified, dry",
+      "category": "Breakfast Cereals",
+      "published": "2019-04-01",
+      "n": {
+        "fiber": {
+          "value": 10.1,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 4.25,
+          "unit": "mg"
+        },
+        "sugars": {
+          "value": 0.99,
+          "unit": "g"
+        },
+        "potassium": {
+          "value": 362,
+          "unit": "mg"
+        },
+        "fat": {
+          "value": 6.52,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 67.7,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 379,
+          "unit": "kcal"
+        },
+        "calcium": {
+          "value": 52,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 6,
+          "unit": "mg"
+        },
+        "protein": {
+          "value": 13.15,
+          "unit": "g"
+        }
+      }
+    },
+    {
+      "slug": "brown-rice",
+      "name": "Brown rice, cooked",
+      "group": "grains",
+      "fdc": "Rice, brown, long-grain, cooked",
+      "fdcId": 169704,
+      "ndb": 20037,
+      "description": "Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",
+      "category": "Cereal Grains and Pasta",
+      "published": "2019-04-01",
+      "n": {
+        "fiber": {
+          "value": 1.6,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 0.56,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 4,
+          "unit": "mg"
+        },
+        "protein": {
+          "value": 2.74,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0.97,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 25.58,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 123,
+          "unit": "kcal"
+        },
+        "sugars": {
+          "value": 0.24,
+          "unit": "g"
+        },
+        "calcium": {
+          "value": 3,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 86,
+          "unit": "mg"
+        }
+      }
+    },
+    {
+      "slug": "lentils",
+      "name": "Lentils, cooked",
+      "group": "legumes",
+      "fdc": "Lentils, mature seeds, cooked, boiled, without salt",
+      "fdcId": 172421,
+      "ndb": 16070,
+      "description": "Lentils, mature seeds, cooked, boiled, without salt",
+      "category": "Legumes and Legume Products",
+      "published": "2019-04-01",
+      "n": {
+        "sugars": {
+          "value": 1.8,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 20.13,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 116,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 9.02,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 7.9,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 3.33,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 2,
+          "unit": "mg"
+        },
+        "fat": {
+          "value": 0.38,
+          "unit": "g"
+        },
+        "calcium": {
+          "value": 19,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 369,
+          "unit": "mg"
+        }
+      }
+    },
+    {
+      "slug": "chickpeas",
+      "name": "Chickpeas, cooked",
+      "group": "legumes",
+      "fdc": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+      "fdcId": 173757,
+      "ndb": 16057,
+      "description": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+      "category": "Legumes and Legume Products",
+      "published": "2019-04-01",
+      "n": {
+        "fiber": {
+          "value": 7.6,
+          "unit": "g"
+        },
+        "sugars": {
+          "value": 4.8,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 27.42,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 164,
+          "unit": "kcal"
+        },
+        "fat": {
+          "value": 2.59,
+          "unit": "g"
+        },
+        "calcium": {
+          "value": 49,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 291,
+          "unit": "mg"
+        },
+        "iron": {
+          "value": 2.89,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 7,
+          "unit": "mg"
+        },
+        "protein": {
+          "value": 8.86,
+          "unit": "g"
+        }
+      }
+    },
+    {
+      "slug": "eggs",
+      "name": "Whole eggs",
+      "group": "dairy-eggs",
+      "fdc": "Egg, whole, raw, fresh",
+      "fdcId": 171287,
+      "ndb": 1123,
+      "description": "Egg, whole, raw, fresh",
+      "category": "Dairy and Egg Products",
+      "published": "2019-04-01",
+      "n": {
+        "kcal": {
+          "value": 143,
+          "unit": "kcal"
+        },
+        "protein": {
+          "value": 12.56,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 1.75,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 142,
+          "unit": "mg"
+        },
+        "sugars": {
+          "value": 0.37,
+          "unit": "g"
+        },
+        "calcium": {
+          "value": 56,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 138,
+          "unit": "mg"
+        },
+        "fat": {
+          "value": 9.51,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 0.72,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 0,
+          "unit": "g"
+        }
+      }
+    },
+    {
+      "slug": "greek-yogurt",
+      "name": "Greek yogurt, plain nonfat",
+      "group": "dairy-eggs",
+      "fdc": "Yogurt, Greek, plain, nonfat",
+      "fdcId": 170894,
+      "ndb": 1256,
+      "description": "Yogurt, Greek, plain, nonfat (Includes foods for USDA's Food Distribution Program)",
+      "category": "Dairy and Egg Products",
+      "published": "2019-04-01",
+      "n": {
+        "fiber": {
+          "value": 0,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 0.07,
+          "unit": "mg"
+        },
+        "protein": {
+          "value": 10.19,
+          "unit": "g"
+        },
+        "sodium": {
+          "value": 36,
+          "unit": "mg"
+        },
+        "fat": {
+          "value": 0.39,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 3.6,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 59,
+          "unit": "kcal"
+        },
+        "sugars": {
+          "value": 3.24,
+          "unit": "g"
+        },
+        "calcium": {
+          "value": 110,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 141,
+          "unit": "mg"
+        }
+      }
+    },
+    {
+      "slug": "spinach",
+      "name": "Spinach, raw",
+      "group": "vegetables",
+      "fdc": "Spinach, raw",
+      "fdcId": 168462,
+      "ndb": 11457,
+      "description": "Spinach, raw",
+      "category": "Vegetables and Vegetable Products",
+      "published": "2019-04-01",
+      "n": {
+        "calcium": {
+          "value": 99,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 558,
+          "unit": "mg"
+        },
+        "protein": {
+          "value": 2.86,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 2.71,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 79,
+          "unit": "mg"
+        },
+        "fiber": {
+          "value": 2.2,
+          "unit": "g"
+        },
+        "sugars": {
+          "value": 0.42,
+          "unit": "g"
+        },
+        "fat": {
+          "value": 0.39,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 3.63,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 23,
+          "unit": "kcal"
+        }
+      }
+    },
+    {
+      "slug": "broccoli",
+      "name": "Broccoli, raw",
+      "group": "vegetables",
+      "fdc": "Broccoli, raw",
+      "fdcId": 170379,
+      "ndb": 11090,
+      "description": "Broccoli, raw",
+      "category": "Vegetables and Vegetable Products",
+      "published": "2019-04-01",
+      "n": {
+        "sugars": {
+          "value": 1.7,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 6.64,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 34,
+          "unit": "kcal"
+        },
+        "fat": {
+          "value": 0.37,
+          "unit": "g"
+        },
+        "calcium": {
+          "value": 47,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 316,
+          "unit": "mg"
+        },
+        "protein": {
+          "value": 2.82,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 2.6,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 0.73,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 33,
+          "unit": "mg"
+        }
+      }
+    },
+    {
+      "slug": "salmon",
+      "name": "Atlantic salmon, farmed",
+      "group": "fish",
+      "fdc": "Fish, salmon, Atlantic, farmed, raw",
+      "fdcId": 175167,
+      "ndb": 15236,
+      "description": "Fish, salmon, Atlantic, farmed, raw",
+      "category": "Finfish and Shellfish Products",
+      "published": "2019-04-01",
+      "n": {
+        "kcal": {
+          "value": 208,
+          "unit": "kcal"
+        },
+        "calcium": {
+          "value": 9,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 363,
+          "unit": "mg"
+        },
+        "fat": {
+          "value": 13.42,
+          "unit": "g"
+        },
+        "protein": {
+          "value": 20.42,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 0.34,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 59,
+          "unit": "mg"
+        },
+        "sugars": {
+          "value": 0,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 0,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 0,
+          "unit": "g"
+        }
+      }
+    },
+    {
+      "slug": "almonds",
+      "name": "Almonds",
+      "group": "nuts-seeds",
+      "fdc": "Nuts, almonds",
+      "fdcId": 170567,
+      "ndb": 12061,
+      "description": "Nuts, almonds",
+      "category": "Nut and Seed Products",
+      "published": "2019-04-01",
+      "n": {
+        "protein": {
+          "value": 21.15,
+          "unit": "g"
+        },
+        "fiber": {
+          "value": 12.5,
+          "unit": "g"
+        },
+        "iron": {
+          "value": 3.71,
+          "unit": "mg"
+        },
+        "fat": {
+          "value": 49.93,
+          "unit": "g"
+        },
+        "carbs": {
+          "value": 21.55,
+          "unit": "g"
+        },
+        "kcal": {
+          "value": 579,
+          "unit": "kcal"
+        },
+        "calcium": {
+          "value": 269,
+          "unit": "mg"
+        },
+        "potassium": {
+          "value": 733,
+          "unit": "mg"
+        },
+        "sodium": {
+          "value": 1,
+          "unit": "mg"
+        },
+        "sugars": {
+          "value": 4.35,
+          "unit": "g"
+        }
+      }
+    }
+  ]
+}

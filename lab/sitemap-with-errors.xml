@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://anasgenaiva.github.io/lab/noindex/</loc><lastmod>last tuesday</lastmod></url>
+  <url><loc>https://example.com/not-this-site/</loc></url>
+  <url><loc>https://anasgenaiva.github.io/lab/this-page-does-not-exist/</loc></url>
+</urlset>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portion nutrition calculator: protein and calories by weight | Plate Notes</title>
+<meta name="description" content="Scale USDA per-100 g values to any portion: pick one of ten foods, enter grams, and see energy, protein, fibre, fat and minerals.">
+
+<link rel="canonical" href="https://anasgenaiva.github.io/tools/portion-calculator/">
+
+<meta property="og:site_name" content="Plate Notes">
+<meta property="og:title" content="Portion nutrition calculator: protein and calories by weight | Plate Notes">
+<meta property="og:description" content="Scale USDA per-100 g values to any portion: pick one of ten foods, enter grams, and see energy, protein, fibre, fat and minerals.">
+<meta property="og:url" content="https://anasgenaiva.github.io/tools/portion-calculator/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#16140f">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anasgenaiva.github.io/"},{"@type":"ListItem","position":2,"name":"Portion calculator","item":"https://anasgenaiva.github.io/tools/portion-calculator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Portion calculator","applicationCategory":"HealthApplication","operatingSystem":"Any","url":"https://anasgenaiva.github.io/tools/portion-calculator/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body class="g-dairy-eggs">
+<a class="skip" href="#main">Skip to content</a>
+<div class="stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<header class="top">
+<a class="brand" href="/">Plate Notes</a>
+<nav aria-label="Main"><ul><li><a href="/foods/">Foods</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/guides/">Guides</a></li><li><a href="/tools/portion-calculator/" aria-current="page">Portion calculator</a></li><li><a href="/lab/">SEO lab</a></li><li><a href="/about/">About</a></li></ul></nav>
+</header>
+<main id="main"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Portion calculator</span></li></ol></nav>
+<div class="field g-dairy-eggs"><p class="group">Tool</p><h1>Portion calculator</h1><p class="lede">Pick a food, type the weight on your plate, and see what that portion holds.</p></div>
+<div class="column">
+<form class="tool" id="calc" novalidate>
+<div class="row">
+<label>Food<select id="food"><option value="rolled-oats">Rolled oats</option><option value="brown-rice">Brown rice, cooked</option><option value="lentils">Lentils, cooked</option><option value="chickpeas">Chickpeas, cooked</option><option value="eggs">Whole eggs</option><option value="greek-yogurt">Greek yogurt, plain nonfat</option><option value="spinach">Spinach, raw</option><option value="broccoli">Broccoli, raw</option><option value="salmon">Atlantic salmon, farmed</option><option value="almonds">Almonds</option></select></label>
+<label>Weight in grams<input id="grams" type="number" inputmode="decimal" min="1" max="2000" step="1" value="100" required></label>
+</div>
+<p class="err" id="err" role="alert"></p>
+<output id="out" for="food grams" aria-live="polite"></output>
+</form>
+<noscript><p>The calculator needs JavaScript. Every food page lists its per-100 g values; multiply by your weight and divide by 100.</p></noscript>
+<p class="note">Values scale linearly from the USDA per-100 g record shown under the result.</p>
+<p class="disclaimer">General information, not medical or dietary advice.</p>
+</div></main>
+<script>
+const FOODS=[{"slug":"rolled-oats","name":"Rolled oats","url":"/foods/rolled-oats/","fdc":173904,"n":{"fiber":[10.1,"g"],"iron":[4.25,"mg"],"sugars":[0.99,"g"],"potassium":[362,"mg"],"fat":[6.52,"g"],"carbs":[67.7,"g"],"kcal":[379,"kcal"],"calcium":[52,"mg"],"sodium":[6,"mg"],"protein":[13.15,"g"]}},{"slug":"brown-rice","name":"Brown rice, cooked","url":"/foods/brown-rice/","fdc":169704,"n":{"fiber":[1.6,"g"],"iron":[0.56,"mg"],"sodium":[4,"mg"],"protein":[2.74,"g"],"fat":[0.97,"g"],"carbs":[25.58,"g"],"kcal":[123,"kcal"],"sugars":[0.24,"g"],"calcium":[3,"mg"],"potassium":[86,"mg"]}},{"slug":"lentils","name":"Lentils, cooked","url":"/foods/lentils/","fdc":172421,"n":{"sugars":[1.8,"g"],"carbs":[20.13,"g"],"kcal":[116,"kcal"],"protein":[9.02,"g"],"fiber":[7.9,"g"],"iron":[3.33,"mg"],"sodium":[2,"mg"],"fat":[0.38,"g"],"calcium":[19,"mg"],"potassium":[369,"mg"]}},{"slug":"chickpeas","name":"Chickpeas, cooked","url":"/foods/chickpeas/","fdc":173757,"n":{"fiber":[7.6,"g"],"sugars":[4.8,"g"],"carbs":[27.42,"g"],"kcal":[164,"kcal"],"fat":[2.59,"g"],"calcium":[49,"mg"],"potassium":[291,"mg"],"iron":[2.89,"mg"],"sodium":[7,"mg"],"protein":[8.86,"g"]}},{"slug":"eggs","name":"Whole eggs","url":"/foods/eggs/","fdc":171287,"n":{"kcal":[143,"kcal"],"protein":[12.56,"g"],"iron":[1.75,"mg"],"sodium":[142,"mg"],"sugars":[0.37,"g"],"calcium":[56,"mg"],"potassium":[138,"mg"],"fat":[9.51,"g"],"carbs":[0.72,"g"],"fiber":[0,"g"]}},{"slug":"greek-yogurt","name":"Greek yogurt, plain nonfat","url":"/foods/greek-yogurt/","fdc":170894,"n":{"fiber":[0,"g"],"iron":[0.07,"mg"],"protein":[10.19,"g"],"sodium":[36,"mg"],"fat":[0.39,"g"],"carbs":[3.6,"g"],"kcal":[59,"kcal"],"sugars":[3.24,"g"],"calcium":[110,"mg"],"potassium":[141,"mg"]}},{"slug":"spinach","name":"Spinach, raw","url":"/foods/spinach/","fdc":168462,"n":{"calcium":[99,"mg"],"potassium":[558,"mg"],"protein":[2.86,"g"],"iron":[2.71,"mg"],"sodium":[79,"mg"],"fiber":[2.2,"g"],"sugars":[0.42,"g"],"fat":[0.39,"g"],"carbs":[3.63,"g"],"kcal":[23,"kcal"]}},{"slug":"broccoli","name":"Broccoli, raw","url":"/foods/broccoli/","fdc":170379,"n":{"sugars":[1.7,"g"],"carbs":[6.64,"g"],"kcal":[34,"kcal"],"fat":[0.37,"g"],"calcium":[47,"mg"],"potassium":[316,"mg"],"protein":[2.82,"g"],"fiber":[2.6,"g"],"iron":[0.73,"mg"],"sodium":[33,"mg"]}},{"slug":"salmon","name":"Atlantic salmon, farmed","url":"/foods/salmon/","fdc":175167,"n":{"kcal":[208,"kcal"],"calcium":[9,"mg"],"potassium":[363,"mg"],"fat":[13.42,"g"],"protein":[20.42,"g"],"iron":[0.34,"mg"],"sodium":[59,"mg"],"sugars":[0,"g"],"fiber":[0,"g"],"carbs":[0,"g"]}},{"slug":"almonds","name":"Almonds","url":"/foods/almonds/","fdc":170567,"n":{"protein":[21.15,"g"],"fiber":[12.5,"g"],"iron":[3.71,"mg"],"fat":[49.93,"g"],"carbs":[21.55,"g"],"kcal":[579,"kcal"],"calcium":[269,"mg"],"potassium":[733,"mg"],"sodium":[1,"mg"],"sugars":[4.35,"g"]}}];
+const L={"kcal":"Energy","protein":"Protein","fat":"Total fat","carbs":"Carbohydrate","fiber":"Fibre","sugars":"Sugars","calcium":"Calcium","iron":"Iron","potassium":"Potassium","sodium":"Sodium"};
+const sel=document.getElementById("food"),g=document.getElementById("grams"),out=document.getElementById("out"),err=document.getElementById("err");
+const q=new URLSearchParams(location.search).get("food");if(q&&FOODS.some(f=>f.slug===q))sel.value=q;
+function fmt(x,d){return (Math.round(x*10**d)/10**d).toLocaleString("en-US",{maximumFractionDigits:d})}
+function render(){const w=Number(g.value);const f=FOODS.find(x=>x.slug===sel.value);
+if(!g.value||!isFinite(w)||w<=0||w>2000){err.textContent="Enter a weight between 1 and 2000 grams.";out.innerHTML="";return}
+err.textContent="";
+out.innerHTML='<div class="table-wrap"><table><caption>'+fmt(w,0)+' g of '+f.name.toLowerCase()+'</caption><thead><tr><th scope="col">Nutrient</th><th scope="col" class="num">Amount</th></tr></thead><tbody>'+Object.keys(L).map(k=>{const[val,u]=f.n[k];return '<tr><th scope="row">'+L[k]+'</th><td class="num">'+fmt(val*w/100,u==="g"?1:0)+' '+u+'</td></tr>'}).join("")+'</tbody></table></div><p class="note">From <a href="'+f.url+'">'+f.name+'</a>, USDA FDC '+f.fdc+'.</p>'}
+sel.addEventListener("change",render);g.addEventListener("input",render);document.getElementById("calc").addEventListener("submit",e=>{e.preventDefault();render()});render();
+</script>
+<footer>
+<p>Plate Notes: per-100 g food facts from USDA FoodData Central, and a lab for learning Google Search Console. General information, not medical advice.</p>
+<ul><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/lab/">SEO lab</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
+</footer>
+</body>
+</html>

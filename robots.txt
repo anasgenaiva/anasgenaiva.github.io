@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /lab/blocked-by-robots/
+
+Sitemap: https://anasgenaiva.github.io/sitemap.xml
