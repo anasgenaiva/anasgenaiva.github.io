@@ -85,6 +85,7 @@ ${noDescription ? "" : `<meta property="og:description" content="${esc(descripti
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
 ${headExtra}
 ${ga}
 ${schemas.map(ld).join("\n")}
@@ -96,7 +97,7 @@ ${schemas.map(ld).join("\n")}
 <a class="brand" href="/">${NAME}</a>
 <nav aria-label="Main"><ul>${NAV.map(([href, label]) => `<li><a href="${href}"${navCurrent === href ? ' aria-current="page"' : ""}>${label}</a></li>`).join("")}</ul></nav>
 </header>
-${body}
+${body.replace(/(<div class="field[^>]*>(?:<p class="group">[^<]*<\/p>)?)<h1>/, "$1<h1 data-split>")}
 <footer>
 <p>${NAME}: per-100 g food facts from USDA FoodData Central, and a lab for learning Google Search Console. General information, not medical advice.</p>
 <ul><li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/lab/">SEO lab</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
@@ -113,10 +114,12 @@ function add(path, html, sitemap = true) { pages.push({ path, html, sitemap }); 
   const chart = Object.entries(GROUPS).map(([g, meta]) => {
     const list = foods.filter((f) => f.group === g);
     return `<section class="g-${g}" aria-labelledby="h-${g}"><h2 id="h-${g}">${meta.name}</h2><ul>${list.map((f) =>
-      `<li><a href="${f.url}">${esc(f.name)}</a><span class="per">${fmt(v(f, "protein"))} g protein</span></li>`).join("")}</ul><p class="more">${meta.blurb}</p></section>`;
+      `<li data-food="${f.slug}" data-protein="${v(f, "protein")}" data-fiber="${v(f, "fiber")}" data-kcal="${v(f, "kcal")}" data-iron="${v(f, "iron")}"><a href="${f.url}">${esc(f.name)}</a><span class="per">${fmt(v(f, "protein"))} g</span></li>`).join("")}</ul><p class="more">${meta.blurb}</p></section>`;
   }).join("") + `<section class="g-lab" aria-labelledby="h-lab"><h2 id="h-lab">SEO lab</h2><ul><li><a href="/lab/">Pages broken on purpose</a><span class="per">16</span></li><li><a href="/lab/#how">How to practise</a><span class="per">guide</span></li></ul><p class="more">Each lab page shows a different Search Console status.</p></section>`;
   const body = `<main id="main">
-<div class="chart-head"><h1>${NAME}</h1><p>What 100 grams of ten everyday foods holds, straight from USDA FoodData Central, with simple recipes built from them. Protein per 100 g shown below.</p></div>
+<div class="chart-head"><h1 data-split>${NAME}</h1><p>What 100 grams of ten everyday foods holds, straight from USDA FoodData Central, with simple recipes built from them.</p></div>
+<div class="ticker" aria-hidden="true"><div class="ticker-track">${[0, 1].map(() => foods.map((f) => `<span><b>${esc(f.name)}</b> ${fmt(v(f, "kcal"), 0)} kcal · ${fmt(v(f, "protein"))} g protein · ${fmt(v(f, "fiber"))} g fibre</span>`).join("")).join("")}</div></div>
+<div class="switch" role="group" aria-label="Measure every food by" data-switch><span>Per 100 g, measure by</span><button type="button" data-key="protein" aria-pressed="true">Protein</button><button type="button" data-key="fiber" aria-pressed="false">Fibre</button><button type="button" data-key="kcal" aria-pressed="false">Energy</button><button type="button" data-key="iron" aria-pressed="false">Iron</button></div>
 <div class="chart">${chart}</div>
 <div class="wide">
 <h2>Start here</h2>
@@ -146,6 +149,20 @@ function nutrientTable(f, grams = 100) {
   return `<div class="table-wrap"><table><caption>Per ${grams} g, USDA FDC ${f.fdcId}</caption><thead><tr><th scope="col">Nutrient</th><th scope="col" class="num">Amount</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
+function donut(f) {
+  const hexes = { grains: "#f0b323", legumes: "#e0602a", "dairy-eggs": "#74bde9", vegetables: "#3f9e52", fish: "#1d5aa6", "nuts-seeds": "#b03a6c" };
+  const parts = [["protein", "Protein", v(f, "protein") * 4, hexes[f.group]], ["fat", "Fat", v(f, "fat") * 9, "#16140f"], ["carbs", "Carbohydrate", v(f, "carbs") * 4, "#cfcabd"]];
+  const sum = parts.reduce((a, p) => a + p[2], 0);
+  const R = 70, C = 2 * Math.PI * R;
+  let off = 0;
+  const circles = parts.map(([key, label, kc, color]) => {
+    const len = (kc / sum) * C, pct = Math.round((kc / sum) * 100);
+    const c = `<circle data-seg="${label}" data-key="${key}" data-pct="${pct}" tabindex="0" cx="90" cy="90" r="${R}" stroke="${color}" stroke-dasharray="${len.toFixed(2)} ${(C - len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}" style="--len:${(C - off).toFixed(2)}"><title>${label}: ${pct}% of energy</title></circle>`;
+    off += len; return c;
+  }).join("");
+  return `<div class="donut"><div class="donut-fig"><svg viewBox="0 0 180 180" role="img" aria-label="Share of energy from protein, fat and carbohydrate">${circles}</svg><div class="donut-label"><b>${fmt(v(f, "kcal"), 0)}</b>kcal per 100 g</div></div><ul class="donut-key">${parts.map(([, label, kc, color]) => `<li><i style="background:${color}"></i>${label}<span style="margin-left:auto">${Math.round((kc / sum) * 100)}%</span></li>`).join("")}</ul></div><p class="note">Shares use 4 kcal per gram for protein and carbohydrate and 9 for fat, so they are estimates; fibre is counted inside carbohydrate.</p>`;
+}
+
 for (const f of foods) {
   const g = GROUPS[f.group];
   const crumbs = breadcrumbs([["/foods/", "Foods"], [f.url, f.name]]);
@@ -166,6 +183,8 @@ ${crumbs.html}
 <p>${NOTES[f.slug]}</p>
 <h2>Nutrients in 100 g</h2>
 ${nutrientTable(f)}
+<h2>Where the energy comes from</h2>
+${donut(f)}
 <h2>How it compares</h2>
 ${facts}
 <p>See every food side by side in <a href="/guides/protein-per-100-kcal/">protein per 100 calories</a>, or work out a real portion with the <a href="/tools/portion-calculator/?food=${f.slug}">portion calculator</a>.</p>
@@ -201,7 +220,7 @@ ${others.length ? `<h2>Also in ${g.name.toLowerCase()}</h2><ul>${others.map((o) 
   const crumbs = breadcrumbs([["/guides/", "Guides"], ["/guides/protein-per-100-kcal/", "Protein per 100 calories"]]);
   const sorted = [...foods].sort((a, b) => per100kcal(b) - per100kcal(a));
   const max = per100kcal(sorted[0]);
-  const bars = `<ul class="bars" aria-label="Protein per 100 kcal, highest first">${sorted.map((f) => `<li class="g-${f.group}"><a href="${f.url}">${esc(f.name)}</a><span class="bar" style="width:${(per100kcal(f) / max * 100).toFixed(1)}%"></span><span class="val">${fmt(per100kcal(f))} g</span></li>`).join("")}</ul>`;
+  const bars = `<ul class="bars" aria-label="Protein per 100 kcal, highest first">${sorted.map((f, i) => `<li class="g-${f.group}" style="--n:${i}"><a href="${f.url}">${esc(f.name)}</a><span class="bar" style="width:${(per100kcal(f) / max * 100).toFixed(1)}%"></span><span class="val">${fmt(per100kcal(f))} g</span></li>`).join("")}</ul>`;
   const top = sorted[0], low = sorted[sorted.length - 1];
   const body = `<main id="main">${crumbs.html}
 <div class="field g-legumes"><p class="group">Guide</p><h1>Protein per 100 calories, ten foods ranked</h1><p class="lede">Grams per 100 g tell you how dense a food is. Grams per 100 kcal tell you how much protein you get for the energy you eat.</p></div>
