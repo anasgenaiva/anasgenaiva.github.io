@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "file": "/img/hero.webp",
+    "width": 1400,
+    "height": 934,
+    "title": "Vegetables at vegetable market, Havelock Island, Andamans",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vegetables_at_vegetable_market,_Havelock_Island,_Andamans.jpg"
+  },
+  "grains": {
+    "file": "/img/grains.webp",
+    "width": 1400,
+    "height": 1050,
+    "title": "Cooked oatmeal in bowl",
+    "author": "Bodhi Peace",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cooked_oatmeal_in_bowl.jpg"
+  },
+  "legumes": {
+    "file": "/img/legumes.webp",
+    "width": 1400,
+    "height": 1050,
+    "title": "Red lentils",
+    "author": "No machine-readable author provided. Yuvalif assumed (based on copyright claims).",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Red_lentils.JPG"
+  },
+  "dairy-eggs": {
+    "file": "/img/dairy-eggs.webp",
+    "width": 1400,
+    "height": 1050,
+    "title": "Boiled Egg - Crossection",
+    "author": "Ramesh NG",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Boiled_Egg_-_Crossection.jpg"
+  },
+  "vegetables": {
+    "file": "/img/vegetables.webp",
+    "width": 1400,
+    "height": 1034,
+    "title": "Spinach leaves",
+    "author": "Nillerdk",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Spinach_leaves.jpg"
+  },
+  "fish": {
+    "file": "/img/fish.webp",
+    "width": 1400,
+    "height": 1050,
+    "title": "Raw salmon fillets",
+    "author": "FULVIO_TOGNON",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Raw_salmon_fillets.jpg"
+  },
+  "nuts-seeds": {
+    "file": "/img/nuts-seeds.webp",
+    "width": 1400,
+    "height": 934,
+    "title": "Pecans, hazelnuts, walnuts, almonds, Brazil nuts on a table with logs 1",
+    "author": "Baileynorwood",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Pecans,_hazelnuts,_walnuts,_almonds,_Brazil_nuts_on_a_table_with_logs_1.jpg"
+  },
+  "fruit": {
+    "file": "/img/fruit.webp",
+    "width": 1400,
+    "height": 1400,
+    "title": "20241117 Fruit Platter anagoria",
+    "author": "Anagoria",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20241117_Fruit_Platter_anagoria.jpg"
+  },
+  "overnight-oats-greek-yogurt": {
+    "file": "/img/overnight-oats-greek-yogurt.webp",
+    "width": 1400,
+    "height": 1050,
+    "title": "Anabolic Blueberry Oatmeal.",
+    "author": "Home Cooking Secrets",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Anabolic_Blueberry_Oatmeal..JPG"
+  },
+  "lentil-spinach-soup": {
+    "file": "/img/lentil-spinach-soup.webp",
+    "width": 1400,
+    "height": 1702,
+    "title": "Lentil soup with pepper and toast",
+    "author": "Alexandra E Rust from Cape Town, South Africa",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lentil_soup_with_pepper_and_toast.jpg"
+  },
+  "chickpea-egg-broccoli-bowl": {
+    "file": "/img/chickpea-egg-broccoli-bowl.webp",
+    "width": 1400,
+    "height": 932,
+    "title": "Plant-fruit-bowl-dish-food-salad-1200225-pxhere",
+    "author": "Unknown authorUnknown author",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Plant-fruit-bowl-dish-food-salad-1200225-pxhere.jpg"
+  },
+  "salmon-rice-broccoli": {
+    "file": "/img/salmon-rice-broccoli.webp",
+    "width": 1400,
+    "height": 934,
+    "title": "Grilled plated salmon fillet",
+    "author": "DanaTentis",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Grilled_plated_salmon_fillet.jpg"
+  }
+}

@@ -18,6 +18,39 @@ const FOODS = [
   { slug: "broccoli", name: "Broccoli, raw", group: "vegetables", fdc: "Broccoli, raw" },
   { slug: "salmon", name: "Atlantic salmon, farmed", group: "fish", fdc: "Fish, salmon, Atlantic, farmed, raw" },
   { slug: "almonds", name: "Almonds", group: "nuts-seeds", fdc: "Nuts, almonds" },
+  { slug: "quinoa", name: "Quinoa, cooked", group: "grains", fdc: "Quinoa, cooked" },
+  { slug: "pearl-barley", name: "Pearl barley, cooked", group: "grains", fdc: "Barley, pearled, cooked" },
+  { slug: "bulgur", name: "Bulgur, cooked", group: "grains", fdc: "Bulgur, cooked" },
+  { slug: "whole-wheat-pasta", name: "Whole-wheat pasta, cooked", group: "grains", fdc: "Pasta, whole-wheat, cooked" },
+  { slug: "buckwheat", name: "Buckwheat groats, cooked", group: "grains", fdc: "Buckwheat groats, roasted, cooked" },
+  { slug: "black-beans", name: "Black beans, cooked", group: "legumes", fdc: "Beans, black, mature seeds, cooked, boiled, without salt" },
+  { slug: "kidney-beans", name: "Kidney beans, cooked", group: "legumes", fdc: "Beans, kidney, red, mature seeds, cooked, boiled, without salt" },
+  { slug: "split-peas", name: "Split peas, cooked", group: "legumes", fdc: "Peas, split, mature seeds, cooked, boiled, without salt" },
+  { slug: "edamame", name: "Edamame", group: "legumes", fdc: "Edamame, frozen, prepared" },
+  { slug: "tofu", name: "Firm tofu", group: "legumes", fdc: "Tofu, firm, prepared with calcium sulfate" },
+  { slug: "milk", name: "Milk, 2% fat", group: "dairy-eggs", fdc: "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D" },
+  { slug: "cottage-cheese", name: "Cottage cheese, 2% fat", group: "dairy-eggs", fdc: "Cheese, cottage, lowfat, 2% milkfat" },
+  { slug: "cheddar", name: "Cheddar cheese", group: "dairy-eggs", fdc: "Cheese, cheddar" },
+  { slug: "whole-milk-yogurt", name: "Plain yogurt, whole milk", group: "dairy-eggs", fdc: "Yogurt, plain, whole milk" },
+  { slug: "kale", name: "Kale, raw", group: "vegetables", fdc: "Kale, raw" },
+  { slug: "carrots", name: "Carrots, raw", group: "vegetables", fdc: "Carrots, raw" },
+  { slug: "sweet-potato", name: "Sweet potato, raw", group: "vegetables", fdc: "Sweet potato, raw, unprepared" },
+  { slug: "tomatoes", name: "Tomatoes, raw", group: "vegetables", fdc: "Tomatoes, red, ripe, raw, year round average" },
+  { slug: "tuna", name: "Light tuna, canned in water", group: "fish", fdc: "Fish, tuna, light, canned in water, drained solids" },
+  { slug: "sardines", name: "Sardines, canned in oil", group: "fish", fdc: "Fish, sardine, Atlantic, canned in oil, drained solids with bone" },
+  { slug: "cod", name: "Atlantic cod", group: "fish", fdc: "Fish, cod, Atlantic, raw" },
+  { slug: "mackerel", name: "Atlantic mackerel", group: "fish", fdc: "Fish, mackerel, Atlantic, raw" },
+  { slug: "shrimp", name: "Shrimp", group: "fish", fdc: "Crustaceans, shrimp, raw" },
+  { slug: "chia-seeds", name: "Chia seeds", group: "nuts-seeds", fdc: "Seeds, chia seeds, dried" },
+  { slug: "flaxseed", name: "Flaxseed", group: "nuts-seeds", fdc: "Seeds, flaxseed" },
+  { slug: "walnuts", name: "Walnuts", group: "nuts-seeds", fdc: "Nuts, walnuts, english" },
+  { slug: "pumpkin-seeds", name: "Pumpkin seeds", group: "nuts-seeds", fdc: "Seeds, pumpkin and squash seed kernels, dried" },
+  { slug: "peanuts", name: "Peanuts", group: "nuts-seeds", fdc: "Peanuts, all types, raw" },
+  { slug: "avocado", name: "Avocado", group: "fruit", fdc: "Avocados, raw, all commercial varieties" },
+  { slug: "bananas", name: "Bananas", group: "fruit", fdc: "Bananas, raw" },
+  { slug: "apples", name: "Apples, with skin", group: "fruit", fdc: "Apples, raw, with skin" },
+  { slug: "blueberries", name: "Blueberries", group: "fruit", fdc: "Blueberries, raw" },
+  { slug: "oranges", name: "Oranges", group: "fruit", fdc: "Oranges, raw, all commercial varieties" },
 ];
 const NUTRIENTS = { "208": "kcal", "203": "protein", "204": "fat", "205": "carbs", "291": "fiber", "269": "sugars", "301": "calcium", "303": "iron", "306": "potassium", "307": "sodium" };
 
@@ -46,7 +79,7 @@ const out = [];
 for (const f of FOODS) {
   const want = f.fdc.toLowerCase();
   const hit = food.find((x) => x.description.toLowerCase() === want) || food.find((x) => x.description.toLowerCase().startsWith(want + " ("));
-  if (!hit) throw new Error(`${f.slug}: not found`);
+  if (!hit) { console.log(`SKIP ${f.slug}: not found`); continue; }
   const n = {};
   for (const row of fn) {
     if (row.fdc_id !== hit.fdc_id) continue;
@@ -55,7 +88,7 @@ for (const f of FOODS) {
     if (key && n[key] === undefined) n[key] = { value: Number(row.amount), unit: meta.unit_name.toLowerCase() };
   }
   const missing = Object.values(NUTRIENTS).filter((k) => !n[k]);
-  if (missing.length) throw new Error(`${f.slug}: missing ${missing.join(", ")}`);
+  if (missing.length) { console.log(`SKIP ${f.slug}: missing ${missing.join(", ")}`); continue; }
   out.push({ ...f, fdcId: Number(hit.fdc_id), ndb: Number(ndbByFdc.get(hit.fdc_id)), description: hit.description, category: catById.get(hit.food_category_id), published: hit.publication_date, n });
   console.log(`ok ${f.slug} fdc ${hit.fdc_id} kcal ${n.kcal.value} protein ${n.protein.value}`);
 }

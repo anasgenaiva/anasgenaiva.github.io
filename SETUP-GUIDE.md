@@ -7,10 +7,13 @@ Practice lab (broken on purpose): **https://anasgenaiva.github.io/lab/**
 The website is finished and live. It is free (GitHub Pages), needs no domain purchase, and is already built for SEO
 practice:
 
-- 10 food pages, 4 recipes (with Recipe rich-result markup), 2 guides, 1 interactive calculator, About, Privacy.
-- Breadcrumb, Article, Recipe, WebSite and Organization structured data.
-- `sitemap.xml` with 41 pages, `robots.txt`, a real 404 page, canonical tags, unique titles and descriptions.
-- An **SEO lab** of 16 pages broken on purpose. Each one should show up in a different Search Console report
+- 40 food pages, 7 food-group pages, 7 ranked lists, 24 food-vs-food comparisons, 4 recipes, 2 guides, a portion
+  calculator, a compare tool, site search (Ctrl K), About, Photo credits, Privacy and an HTML sitemap: 119 pages.
+- Real photos with alt text, sizes and WebP, listed in image sitemaps.
+- Structured data: Recipe, Article, BreadcrumbList, ItemList, CollectionPage, WebSite with SearchAction, Organization.
+- A **sitemap index** (`sitemap.xml`) pointing to three sitemaps: `sitemaps/pages.xml`, `sitemaps/foods.xml`,
+  `sitemaps/lab.xml`. Plus `robots.txt`, a real 404 page, canonical tags, paginated lists, a noindex search page.
+- An **SEO lab** of 17 pages broken on purpose. Each one should show up in a different Search Console report
   (noindex, blocked by robots.txt, 404, redirect, redirect chain, duplicate, canonical, soft 404, thin page, orphan
   page, page missing from the sitemap, broken Recipe markup, JavaScript content, missing title, sitemap with errors).
 
@@ -58,7 +61,8 @@ Do not remove the tag later. If it disappears, Search Console loses access.
 
 1. In Search Console, left menu: **Indexing, Sitemaps**.
 2. In "Add a new sitemap", type `sitemap.xml` and click **Submit**.
-3. Status should say **Success** with about 41 discovered pages.
+3. Status should say **Success**. Because it is a sitemap index, Search Console then lists the three child sitemaps
+   (pages, foods, lab) with about 116 pages between them. Click each one to see its own status.
 4. For practice, also submit `lab/sitemap-with-errors.xml`. It is broken on purpose and should show **Has errors**.
 
 ### Step 3. Ask Google to look at the main pages (5 minutes)
@@ -112,6 +116,10 @@ purpose and what it should show.
 | Indexing, Pages | Alternate page with proper canonical tag | /lab/alternate/ |
 | Indexing, Pages | Soft 404 | /lab/soft-404/ |
 | Indexing, Pages | Crawled or Discovered, currently not indexed | /lab/thin-content/, /lab/orphan/ |
+| Indexing, Pages | Excluded by noindex (internal search) | /search/ |
+| PageSpeed Insights | Poor LCP and layout shift | /lab/slow-page/ |
+| Enhancements, Breadcrumbs and Recipes | Valid items across many pages | foods, lists, recipes |
+| Indexing, Videos / Images | Image sitemap entries | sitemaps/*.xml |
 | URL Inspection | Google-selected vs user-declared canonical | /lab/canonical-mismatch/ |
 | URL Inspection | Page found by links but not in a sitemap | /lab/not-in-sitemap/ |
 | URL Inspection, View tested page | Text that only exists after JavaScript runs | /lab/javascript-content/ |
